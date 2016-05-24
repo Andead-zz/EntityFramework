@@ -41,5 +41,23 @@ namespace Andead.Utils.EntityFramework
 
             return current;
         }
+
+        /// <summary>
+        ///     Sets <see cref="IDeletable.IsDeleted" /> to true.
+        /// </summary>
+        /// <param name="deletable">An instance of <see cref="IDeletable" />.</param>
+        public static void Delete(this IDeletable deletable)
+        {
+            deletable.IsDeleted = true;
+        }
+
+        /// <summary>
+        ///     Sets <see cref="IDeletable.IsDeleted" /> to false.
+        /// </summary>
+        /// <param name="deletable">An instance of <see cref="IDeletable" />.</param>
+        public static void Undelete(this IDeletable deletable)
+        {
+            deletable.IsDeleted = false;
+        }
     }
 }

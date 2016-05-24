@@ -3,33 +3,14 @@ using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Reflection;
 
 namespace Andead.Utils.EntityFramework
 {
     public abstract class DbContextBase : DbContext
     {
         /// <summary>
-        ///     Sets <see cref="IDeletable.IsDeleted" /> to true.
-        /// </summary>
-        /// <param name="deletable">An instance of <see cref="IDeletable" />.</param>
-        public void Delete(IDeletable deletable)
-        {
-            deletable.IsDeleted = true;
-        }
-
-        /// <summary>
-        ///     Sets <see cref="IDeletable.IsDeleted" /> to false.
-        /// </summary>
-        /// <param name="deletable">An instance of <see cref="IDeletable" />.</param>
-        public void Undelete(IDeletable deletable)
-        {
-            deletable.IsDeleted = false;
-        }
-
-        /// <summary>
-        ///     Saves pending changes to the database with empty string as an author and <see cref="DateTime.Now" /> as a timestamp.
+        ///     Saves pending changes to the database with empty string as an author and <see cref="DateTime.Now" /> as a
+        ///     timestamp.
         /// </summary>
         /// <returns>The number of state entries written to the underlying database. (See <see cref="DbContext.SaveChanges" />). </returns>
         public override int SaveChanges()
