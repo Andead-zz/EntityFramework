@@ -23,21 +23,23 @@ namespace Andead.Utils.EntityFramework
         ///     <see cref="IHierarchical{T}" />.
         /// </summary>
         /// <typeparam name="T">Hierarchical object type.</typeparam>
-        /// <param name="parent">Parent object.</param>
+        /// <param name="current">Parent object.</param>
         /// <param name="children">Children objects.</param>
-        public static void AddChildren<T>(this T parent, params T[] children)
+        public static T AddChildren<T>(this T current, params T[] children)
             where T : class, IHierarchical<T>
         {
-            if (parent.Children == null)
+            if (current.Children == null)
             {
-                parent.Children = new List<T>();
+                current.Children = new List<T>();
             }
 
             foreach (T child in children)
             {
-                parent.Children.Add(child);
-                child.Parent = parent;
+                current.Children.Add(child);
+                child.Parent = current;
             }
+
+            return current;
         }
     }
 }
