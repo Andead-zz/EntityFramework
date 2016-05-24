@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="EntityFramework\DbContextBase.cs" />
     <Compile Include="EntityFramework\IDeletable.cs" />
+    <Compile Include="EntityFramework\IHierarchical.cs" />
     <Compile Include="EntityFramework\ITracked.cs" />
     <Compile Include="EntityFramework\Extensions.cs" />
     <Compile Include="EntityFramework\IIdentified.cs" />
